@@ -6,7 +6,7 @@
 var coins = ["bitcoin", "ether", "xrp", "lumens", "eos", "litecoin", "bcash", "iota", "cardano", "monero", "tether", "tron", "dash", "neo", "nem", "tezos", "zcash", "decred", "waves", "status"]
 var selWord = "";
 var lettersinWord = [];
-var Blanks = 0;
+var blanks = 0;
 var blanksandSuccesses = [];
 var wrongLetters = [];
 
@@ -23,7 +23,7 @@ var guessesLeft = 9;
 function cmMain() {
     selWord = coins[Math.floor(Math.random() * coins.length)];
     lettersinWord = selWord.split("");
-    Blanks = lettersinWord.length;
+    blanks = lettersinWord.length;
 
     //reset
     guessesLeft = 9;
@@ -31,7 +31,7 @@ function cmMain() {
     blanksandSuccesses = [];
 
     // Loop to create blanks
-    for (var i = 0; i < Blanks; i++) {
+    for (var i=0; i < blanks; i++) {
         blanksandSuccesses.push("_");
     }
 
@@ -44,7 +44,7 @@ function cmMain() {
     //Debug
 
     console.log(selWord);
-    console.log(Blanks);
+    console.log(blanks);
     console.log(lettersinWord);
     console.log(blanksandSuccesses);
 }
@@ -55,20 +55,24 @@ function checkLetters(letter) {
 
     var isletterinWord = false;
 
-    for (var i = 0; i < Blanks; i++) {
+    for (var i=0; i < blanks; i++) {
         if (selWord[i] == letter) {
             isletterinWord = true;
             console.log(isletterinWord);
         }
     }
     if (isletterinWord) {
-        for (var i = 0; i < Blanks; i++) {
-            if (selWord[i] = letter);
+        for (var i=0; i < blanks; i++) {
+            if (selWord[i] == letter) {
+                blanksandSuccesses[i] = letter;
+            }
         }
     }
     else {
         wrongLetters.push(letter);
         guessesLeft--
+        console.log(wrongLetters);
+        console.log(letter);
     }
 
     //Debug
