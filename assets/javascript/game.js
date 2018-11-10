@@ -40,6 +40,7 @@ function cmMain() {
     document.getElementById("Guesses").innerHTML = guessesLeft;
     document.getElementById("wins").innerHTML = wins;
     document.getElementById("losses").innerHTML = losses;
+    document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
 
     //Debug
 
@@ -93,6 +94,7 @@ function roundComplete() {
     if (lettersinWord.toString() == blanksandSuccesses.toString()) {
         wins++;
         alert("You Won!");
+        wrongLetters = [];
 
         document.getElementById("wins").innerHTML = wins;
         cmMain();
