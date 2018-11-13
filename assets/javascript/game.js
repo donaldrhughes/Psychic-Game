@@ -93,7 +93,7 @@ function roundComplete() {
     //Check if user won
     if (lettersinWord.toString() == blanksandSuccesses.toString()) {
         wins++;
-        alert("You Won!");
+        alert("HODL!");
         wrongLetters = [];
 
         document.getElementById("wins").innerHTML = wins;
@@ -104,7 +104,7 @@ function roundComplete() {
     //Check if user lost
     else if (guessesLeft == 0) {
         losses++;
-        alert("You Lost!");
+        alert("No Moon!");
 
         document.getElementById("losses").innerHTML = losses;
 
